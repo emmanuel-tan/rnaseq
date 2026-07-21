@@ -108,6 +108,9 @@ workflow FASTQ_REMOVE_RRNA {
         ch_multiqc_files = ch_multiqc_files.mix(RIBODETECTOR.out.log)
     }
     else if (ribo_removal_tool == 'bowtie2') {
+
+        // no change needed here actually
+
         if (make_bowtie2_index) {
             // Process each rRNA file to add unique prefixes and convert U to T
             // This prevents duplicate sequence IDs in SAM header when combining databases
